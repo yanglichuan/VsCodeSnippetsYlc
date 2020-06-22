@@ -1,0 +1,969 @@
+{
+  // Place your snippets for css here. Each snippet is defined under a snippet name and has a prefix, body and
+  // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+  // same ids are connected.
+  // Example:
+  "c1": {
+    "prefix": "log",
+    "body": []
+  },
+  "css-bg": {
+    "prefix": "csCSS3-bg",
+    "body": [
+      "background-image",
+      "background-size",
+      "background-origin",
+      "background-clip"
+    ]
+  },
+  "background-image": {
+    "prefix": "csbackground-image",
+    "body": [
+      "#example1 { ",
+      "    background-image: url(img_flwr.gif), url(paper.gif); ",
+      "    background-position: right bottom, left top; ",
+      "    background-repeat: no-repeat, repeat; ",
+      "}"
+    ]
+  },
+  "background-size": {
+    "prefix": "csbackground-size",
+    "body": [
+      "div",
+      "{",
+      "    background:url(img_flwr.gif);",
+      "    background-size:80px 60px;",
+      "    background-repeat:no-repeat;",
+      "}"
+    ]
+  },
+  "background-repeat": {
+    "prefix": "csbackground-repeat",
+    "body": [
+      "div",
+      "{",
+      "    background:url(img_flwr.gif);",
+      "    background-size:100% 100%;",
+      "    background-repeat:no-repeat;",
+      "}"
+    ]
+  },
+  "background-origin": {
+    "prefix": "csbackground-origin",
+    "body": [
+      "div",
+      "{",
+      "    background:url(img_flwr.gif);",
+      "    background-repeat:no-repeat;",
+      "    background-size:100% 100%;",
+      "    background-origin:content-box;",
+      "}"
+    ]
+  },
+  "background-clip": {
+    "prefix": "csbackground-clip",
+    "body": [
+      "#example1 { ",
+      "    border: 10px dotted black; ",
+      "    padding: 35px; ",
+      "    background: yellow; ",
+      "    background-clip: content-box; ",
+      "}"
+    ]
+  },
+
+  "linear-gradient": {
+    "prefix": "cslinear-gradient",
+    "body": [
+      "#grad {",
+      "    background-image: linear-gradient(#e66465, #9198e5);",
+      "}",
+      "#grad {",
+      "  height: 200px;",
+      "  background-image: linear-gradient(to right, red , yellow);",
+      "}",
+      "#grad {",
+      "  height: 200px;",
+      "  background-image: linear-gradient(to bottom right, red, yellow);",
+      "}",
+      "#grad {",
+      "  background-image: linear-gradient(-90deg, red, yellow);",
+      "}",
+      "#grad {",
+      "  background-image: linear-gradient(red, yellow, green);",
+      "}",
+      "#grad {",
+      "  background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));",
+      "}",
+      "#grad {",
+      "  /* 标准的语法 */",
+      "  background-image: repeating-linear-gradient(red, yellow 10%, green 20%);",
+      "}"
+    ]
+  },
+  "radial-gradient": {
+    "prefix": "csradial-gradient",
+    "body": [
+      "#grad {",
+      "  background-image: radial-gradient(red, yellow, green);",
+      "}",
+      "#grad {",
+      "  background-image: radial-gradient(red 5%, yellow 15%, green 60%);",
+      "}"
+    ]
+  },
+  "cslink": {
+    "prefix": "cslink",
+    "body": ["<link rel=\"stylesheet\" type=\"text/css\" href=\"mystyle.css\">"]
+  },
+  "csbackground": {
+    "prefix": "csbackground",
+    "body": [
+      "background-color",
+      "background-image",
+      "background-repeat",
+      "background-attachment",
+      "background-position"
+    ]
+  },
+  "csbackground-color": {
+    "prefix": "csbackground-color",
+    "body": ["body {background-color:#b0c4de;}"]
+  },
+  "csbackground-image": {
+    "prefix": "csbackground-image",
+    "body": ["body {background-image:url('paper.gif');}"]
+  },
+  "csbackground-repeat": {
+    "prefix": "csbackground-repeat",
+    "body": [
+      "body",
+      "{",
+      "background-image:url('gradient2.png');",
+      "background-repeat:repeat-x;",
+      "}"
+    ]
+  },
+  "csbackground-position": {
+    "prefix": "csbackground-position",
+    "body": [
+      "body",
+      "{",
+      "background-image:url('img_tree.png');",
+      "background-repeat:no-repeat;",
+      "background-position:right top;",
+      "}"
+    ]
+  },
+  "csbackground2": {
+    "prefix": "csbackground2",
+    "body": [
+      "body {background:#ffffff url('img_tree.png') no-repeat right top;}"
+    ]
+  },
+  "cstext-align": {
+    "prefix": "cstext-align",
+    "body": [
+      "h1 {text-align:center;}",
+      "p.date {text-align:right;}",
+      "p.main {text-align:justify;}"
+    ]
+  },
+  "cstext-decoration": {
+    "prefix": "cstext-decoration",
+    "body": [
+      "text-decoration 属性用来设置或删除文本的装饰。",
+      "",
+      "从设计的角度看 text-decoration属性主要是用来删除链接的下划线：",
+      "",
+      "实例",
+      "a {text-decoration:none;}",
+      "h1 {text-decoration:overline;}",
+      "h2 {text-decoration:line-through;}",
+      "h3 {text-decoration:underline;}"
+    ]
+  },
+  "cstext-transform": {
+    "prefix": "cstext-transform",
+    "body": [
+      "文本转换属性是用来指定在一个文本中的大写和小写字母。",
+      "",
+      "可用于所有字句变成大写或小写字母，或每个单词的首字母大写。",
+      "",
+      "实例",
+      "p.uppercase {text-transform:uppercase;}",
+      "p.lowercase {text-transform:lowercase;}",
+      "p.capitalize {text-transform:capitalize;}"
+    ]
+  },
+  "cstext-indent": {
+    "prefix": "cstext-indent",
+    "body": [
+      "文本缩进",
+      "文本缩进属性是用来指定文本的第一行的缩进。",
+      "",
+      "实例",
+      "p {text-indent:50px;}"
+    ]
+  },
+  "csfont-family": {
+    "prefix": "csfont-family",
+    "body": ["p{font-family:\"Times New Roman\", Times, serif;}"]
+  },
+  "csfont-style": {
+    "prefix": "csfont-style",
+    "body": [
+      "p.normal {font-style:normal;}",
+      "p.italic {font-style:italic;}",
+      "p.oblique {font-style:oblique;}"
+    ]
+  },
+  "csfont-size": {
+    "prefix": "csfont-size",
+    "body": [
+      "h1 {font-size:40px;}",
+      "h2 {font-size:30px;}",
+      "p {font-size:14px;}",
+      "为了避免Internet Explorer 中无法调整文本的问题，许多开发者使用 em 单位代替像素。",
+      "",
+      "em的尺寸单位由W3C建议。",
+      "",
+      "1em和当前字体大小相等。在浏览器中默认的文字大小是16px。",
+      "",
+      "因此，1em的默认大小是16px。可以通过下面这个公式将像素转换为em：px/16=em",
+      "",
+      "实例",
+      "h1 {font-size:2.5em;} /* 40px/16=2.5em */",
+      "h2 {font-size:1.875em;} /* 30px/16=1.875em */",
+      "p {font-size:0.875em;} /* 14px/16=0.875em */",
+      "body {font-size:100%;}",
+      "h1 {font-size:2.5em;}",
+      "h2 {font-size:1.875em;}",
+      "p {font-size:0.875em;}"
+    ]
+  },
+  "cs_a_link": {
+    "prefix": "cs_a_link",
+    "body": [
+      "a:link {color:#000000;}      /* 未访问链接*/",
+      "a:visited {color:#00FF00;}  /* 已访问链接 */",
+      "a:hover {color:#FF00FF;}  /* 鼠标移动到链接上 */",
+      "a:active {color:#0000FF;}  /* 鼠标点击时 */",
+      "a:link {text-decoration:none;}",
+      "a:visited {text-decoration:none;}",
+      "a:hover {text-decoration:underline;}",
+      "a:active {text-decoration:underline;}",
+      "a:link {background-color:#B2FF99;}",
+      "a:visited {background-color:#FFFF85;}",
+      "a:hover {background-color:#FF704D;}",
+      "a:active {background-color:#FF704D;}"
+    ]
+  },
+  "cslist-style-type": {
+    "prefix": "cslist-style-type",
+    "body": [
+      "ul.a {list-style-type: circle;}",
+      "ul.b {list-style-type: square;}",
+      " ",
+      "ol.c {list-style-type: upper-roman;}",
+      "ol.d {list-style-type: lower-alpha;}"
+    ]
+  },
+  "cslist-style-image": {
+    "prefix": "cslist-style-image",
+    "body": [
+      "ul",
+      "{",
+      "    list-style-image: url('sqpurple.gif');",
+      "}",
+      "ul",
+      "{",
+      "    list-style-type: none;",
+      "    padding: 0px;",
+      "    margin: 0px;",
+      "}",
+      "ul li",
+      "{",
+      "    background-image: url(sqpurple.gif);",
+      "    background-repeat: no-repeat;",
+      "    background-position: 0px 5px; ",
+      "    padding-left: 14px; ",
+      "}"
+    ]
+  },
+  "cslist-style": {
+    "prefix": "cslist-style",
+    "body": ["ul", "{", "    list-style: square url(\"sqpurple.gif\");", "}"]
+  },
+  "csborder-collapse": {
+    "prefix": "csborder-collapse",
+    "body": [
+      "折叠边框",
+      "border-collapse 属性设置表格的边框是否被折叠成一个单一的边框或隔开：",
+      "",
+      "实例",
+      "table",
+      "{",
+      "    border-collapse:collapse;",
+      "}",
+      "table,th, td",
+      "{",
+      "    border: 1px solid black;",
+      "}"
+    ]
+  },
+  "csborder": {
+    "prefix": "csborder",
+    "body": [
+      "p.one",
+      "{",
+      "    border-style:solid;",
+      "    border-width:5px;",
+      "}",
+      "p.two",
+      "{",
+      "    border-style:solid;",
+      "    border-width:medium;",
+      "}",
+      "p.one",
+      "{",
+      "    border-style:solid;",
+      "    border-color:red;",
+      "}",
+      "p.two",
+      "{",
+      "    border-style:solid;",
+      "    border-color:#98bf21;",
+      "}",
+      "p",
+      "{",
+      "    border-top-style:dotted;",
+      "    border-right-style:solid;",
+      "    border-bottom-style:dotted;",
+      "    border-left-style:solid;",
+      "}"
+    ]
+  },
+  "csMargin": {
+    "prefix": "csMargin",
+    "body": []
+  },
+  "cspadding": {
+    "prefix": "cspadding",
+    "body": [
+      "padding-top:25px;",
+      "padding-bottom:25px;",
+      "padding-right:50px;",
+      "padding-left:50px;"
+    ]
+  },
+  "csvisibility": {
+    "prefix": "csvisibility",
+    "body": ["h1.hidden {visibility:hidden;}"]
+  },
+  "csdisplay": {
+    "prefix": "csdisplay",
+    "body": ["h1.hidden {display:none;}"]
+  },
+  "csstatic": {
+    "prefix": "csstatic",
+    "body": [
+      "HTML 元素的默认值，即没有定位，遵循正常的文档流对象。",
+      "",
+      "静态定位的元素不会受到 top, bottom, left, right影响。",
+      "",
+      "实例",
+      "div.static {",
+      "    position: static;",
+      "    border: 3px solid #73AD21;"
+    ]
+  },
+  "csfixed": {
+    "prefix": "csfixed",
+    "body": [
+      "元素的位置相对于浏览器窗口是固定位置。",
+      "",
+      "即使窗口是滚动的它也不会移动：",
+      "",
+      "实例",
+      "p.pos_fixed",
+      "{",
+      "    position:fixed;",
+      "    top:30px;",
+      "    right:5px;",
+      "}"
+    ]
+  },
+  "csrelative": {
+    "prefix": "csrelative",
+    "body": [
+      "h2.pos_left",
+      "{",
+      "    position:relative;",
+      "    left:-20px;",
+      "}",
+      "h2.pos_right",
+      "{",
+      "    position:relative;",
+      "    left:20px;",
+      "}"
+    ]
+  },
+  "csabsolute": {
+    "prefix": "csabsolute",
+    "body": [
+      "h2",
+      "{",
+      "    position:absolute;",
+      "    left:100px;",
+      "    top:150px;",
+      "}"
+    ]
+  },
+  "cssticky": {
+    "prefix": "cssticky",
+    "body": [
+      "div.sticky {",
+      "    position: -webkit-sticky; /* Safari */",
+      "    position: sticky;",
+      "    top: 0;",
+      "    background-color: green;",
+      "    border: 2px solid #4CAF50;"
+    ]
+  },
+  "csz-index": {
+    "prefix": "csz-index",
+    "body": [
+      "img",
+      "{",
+      "    position:absolute;",
+      "    left:0px;",
+      "    top:0px;",
+      "    z-index:-1;",
+      "}"
+    ]
+  },
+  "csoverflow": {
+    "prefix": "csoverflow",
+    "body": [
+      "div {",
+      "    width: 200px;",
+      "    height: 50px;",
+      "    background-color: #eee;",
+      "    overflow: visible;",
+      "}"
+    ]
+  },
+  "csfloat": {
+    "prefix": "csfloat",
+    "body": [
+      ".thumbnail ",
+      "{",
+      "    float:left;",
+      "    width:110px;",
+      "    height:90px;",
+      "    margin:5px;",
+      "}"
+    ]
+  },
+  "csclear": {
+    "prefix": "csclear",
+    "body": [".text_line", "{", "    clear:both;", "}"]
+  },
+  "cs-margin-auto": {
+    "prefix": "cs-margin-auto",
+    "body": [
+      "注意: 如果没有设置 width 属性(或者设置 100%)，居中对齐将不起作用。",
+
+      ".center {",
+      "    margin: auto;",
+      "    width: 50%;",
+      "    border: 3px solid green;",
+      "    padding: 10px;",
+      "}"
+    ]
+  },
+  "csclearfix": {
+    "prefix": "csclearfix",
+    "body": [
+      "注意：如果子元素的高度大于父元素，且子元素设置了浮动，那么子元素将溢出，这时候你可以使用 \"clearfix(清除浮动)\" 来解决该问题。",
+      "我们可以在父元素上添加 overflow: auto; 来解决子元素溢出的问题:",
+      ".clearfix {",
+      "    overflow: auto;",
+      "}"
+    ]
+  },
+  "cstransform": {
+    "prefix": "cstransform-juzhong",
+    "body": [
+      "除了使用 padding 和 line-height 属性外,我们还可以使用 transform 属性来设置垂直居中:",
+
+      ".center { ",
+      "    height: 200px;",
+      "    position: relative;",
+      "    border: 3px solid green; ",
+      "}",
+      " ",
+      ".center p {",
+      "    margin: 0;",
+      "    position: absolute;",
+      "    top: 50%;",
+      "    left: 50%;",
+      "    transform: translate(-50%, -50%);",
+      "}"
+    ]
+  },
+  "csfirst-child": {
+    "prefix": "csfirst-child",
+    "body": ["p:first-child", "{", "    color:blue;", "}"]
+  },
+  "csfirst-line": {
+    "prefix": "csfirst-line",
+    "body": [
+      "p:first-line ",
+      "{",
+      "    color:#ff0000;",
+      "    font-variant:small-caps;",
+      "}"
+    ]
+  },
+  "csfirst-letter": {
+    "prefix": "csfirst-letter",
+    "body": [
+      "p:first-letter ",
+      "{",
+      "    color:#ff0000;",
+      "    font-size:xx-large;",
+      "}"
+    ]
+  },
+  "csbefore": {
+    "prefix": "csbefore",
+    "body": ["h1:before ", "{", "    content:url(smiley.gif);", "}"]
+  },
+  "csafter": {
+    "prefix": "csafter",
+    "body": ["h1:after", "{", "    content:url(smiley.gif);", "}"]
+  },
+  "cs-ul-li-a": {
+    "prefix": "cs-ul-li-a",
+    "body": [
+		"a",
+			"{",
+			"    display:block;",
+			"    width:60px;",
+			"}",
+			
+
+		"<ul>",
+		"  <li><a href="#home">主页</a></li>",
+		"  <li><a href="#news">新闻</a></li>",
+		"  <li><a href="#contact">联系</a></li>",
+		"  <li><a href="#about">关于</a></li>",
+		"</ul>",
+
+		"ul {",
+			"    list-style-type: none;",
+			"    margin: 0;",
+			"    padding: 0;",
+			"    width: 200px;",
+			"    background-color: #f1f1f1;",
+			"}",
+			" ",
+			"li a {",
+			"    display: block;",
+			"    color: #000;",
+			"    padding: 8px 16px;",
+			"    text-decoration: none;",
+			"}",
+			" ",
+			"/* 鼠标移动到选项上修改背景颜色 */",
+			"li a:hover {",
+			"    background-color: #555;",
+			"    color: white;",
+			"}",
+
+		
+		]
+  },
+  "csdropdown": {
+    "prefix": "csdropdown",
+    "body": [".dropdown {",
+		"    position: relative;",
+		"    display: inline-block;",
+		"}",
+		"",
+		".dropdown-content {",
+		"    display: none;",
+		"    position: absolute;",
+		"    background-color: #f9f9f9;",
+		"    min-width: 160px;",
+		"    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);",
+		"    padding: 12px 16px;",
+		"    z-index: 1;",
+		"}",
+		"",
+		".dropdown:hover .dropdown-content {",
+		"    display: block;",
+		"}",
+		]
+  },
+  "cstext-shadow": {
+    "prefix": "cstext-shadow",
+    "body": ["h1",
+		"{",
+		"    text-shadow: 5px 5px 5px #FF0000;",
+		"}",
+		]
+  },
+  "csbox-shadow": {
+    "prefix": "csbox-shadow",
+    "body": ["div {",
+		"    box-shadow: 10px 10px 5px #888888;",
+		"}","div {",
+		"    box-shadow: 10px 10px 5px grey;",
+		"}",
+		
+		]
+  },
+  "cscard": {
+    "prefix": "cscard",
+    "body": ["div.card {",
+		"    width: 250px;",
+		"    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);",
+		"    text-align: center;",
+		"}",
+		]
+  },
+  "cstext-overflow": {
+    "prefix": "cstext-overflow",
+    "body": ["p.test1 {",
+		"    white-space: nowrap; ",
+		"    width: 200px; ",
+		"    border: 1px solid #000000;",
+		"    overflow: hidden;",
+		"    text-overflow: clip; ",
+		"}",
+		" ",
+		"p.test2 {",
+		"    white-space: nowrap; ",
+		"    width: 200px; ",
+		"    border: 1px solid #000000;",
+		"    overflow: hidden;",
+		"    text-overflow: ellipsis; ",
+		"}",
+		]
+  },
+  "csword-wrap": {
+    "prefix": "csword-wrap",
+    "body": ["p {word-wrap:break-word;}",
+	]
+  },
+  "csfont-face": {
+    "prefix": "csfont-face",
+    "body": ["<style> ",
+		"@font-face",
+		"{",
+		"    font-family: myFirstFont;",
+		"    src: url(sansation_light.woff);",
+		"}",
+		" ",
+		"div",
+		"{",
+		"    font-family:myFirstFont;",
+		"}",
+		"</style>",
+		]
+  },
+  "csrotate": {
+    "prefix": "csrotate",
+    "body": ["div",
+		"{",
+		"transform: rotate(30deg);",
+		"-ms-transform: rotate(30deg); /* IE 9 */",
+		"-webkit-transform: rotate(30deg); /* Safari and Chrome */",
+		"}",
+		]
+  },
+  "cstranslate": {
+    "prefix": "cstranslate",
+    "body": ["div",
+		"{",
+		"transform: translate(50px,100px);",
+		"-ms-transform: translate(50px,100px); /* IE 9 */",
+		"-webkit-transform: translate(50px,100px); /* Safari and Chrome */",
+		"}",
+		]
+  },
+  "csrotate1": {
+    "prefix": "csrotate1",
+    "body": ["div",
+		"{",
+		"transform: rotate(30deg);",
+		"-ms-transform: rotate(30deg); /* IE 9 */",
+		"-webkit-transform: rotate(30deg); /* Safari and Chrome */",
+		"}",
+		]
+  },
+  "csscale": {
+    "prefix": "csscale",
+    "body": ["实例",
+		"-ms-transform:scale(2,3); /* IE 9 */",
+		"-webkit-transform: scale(2,3); /* Safari */",
+		"transform: scale(2,3); /* 标准语法 */",
+		]
+  },
+  "csskew": {
+    "prefix": "csskew",
+    "body": ["div",
+		"{",
+		"transform: skew(30deg,20deg);",
+		"-ms-transform: skew(30deg,20deg); /* IE 9 */",
+		"-webkit-transform: skew(30deg,20deg); /* Safari and Chrome */",
+		"}",
+		]
+  },
+  "csrotateX": {
+    "prefix": "csrotateX",
+    "body": ["div",
+		"{",
+		"    transform: rotateX(120deg);",
+		"    -webkit-transform: rotateX(120deg); /* Safari 与 Chrome */",
+		"}",
+		]
+  },
+  "csrotateY": {
+    "prefix": "csrotateY",
+    "body": ["div",
+		"{",
+		"    transform: rotateY(130deg);",
+		"    -webkit-transform: rotateY(130deg); /* Safari 与 Chrome */",
+		"}",
+		]
+  },
+  "cstransition": {
+    "prefix": "cstransition",
+    "body": ["div",
+		"{",
+		"    transition: width 2s;",
+		"    -webkit-transition: width 2s; /* Safari */",
+		"}","div:hover",
+		"{",
+		"    width:300px;",
+		"}","div",
+		"{",
+		"    transition: width 2s, height 2s, transform 2s;",
+		"    -webkit-transition: width 2s, height 2s, -webkit-transform 2s;",
+		"}","div",
+		"{",
+		"    transition-property: width;",
+		"    transition-duration: 1s;",
+		"    transition-timing-function: linear;",
+		"    transition-delay: 2s;",
+		"    /* Safari */",
+		"    -webkit-transition-property:width;",
+		"    -webkit-transition-duration:1s;",
+		"    -webkit-transition-timing-function:linear;",
+		"    -webkit-transition-delay:2s;",
+		"}",
+		
+		
+		
+		]
+  },
+  "cskeyframes": {
+    "prefix": "cskeyframes",
+    "body": ["@keyframes myfirst",
+		"{",
+		"    from {background: red;}",
+		"    to {background: yellow;}",
+		"}",
+		" ",
+		"@-webkit-keyframes myfirst /* Safari 与 Chrome */",
+		"{",
+		"    from {background: red;}",
+		"    to {background: yellow;}",
+		"}",
+		"div",
+			"{",
+			"    animation: myfirst 5s;",
+			"    -webkit-animation: myfirst 5s; /* Safari 与 Chrome */",
+			"}",
+
+
+			"div",
+			"{",
+			"    animation: myfirst 5s linear 2s infinite alternate;",
+			"    /* Safari 与 Chrome: */",
+			"    -webkit-animation: myfirst 5s linear 2s infinite alternate;",
+			"}",
+			
+		]
+  },
+  "cscolumn-count": {
+    "prefix": "cscolumn-count",
+    "body": ["div {",
+		"    -webkit-column-count: 3; /* Chrome, Safari, Opera */",
+		"    -moz-column-count: 3; /* Firefox */",
+		"    column-count: 3;",
+		"}",
+		]
+  },
+  "cscolumn-gap": {
+    "prefix": "cscolumn-gap",
+    "body": ["div {",
+		"    -webkit-column-gap: 40px; /* Chrome, Safari, Opera */",
+		"    -moz-column-gap: 40px; /* Firefox */",
+		"    column-gap: 40px;",
+		"}",
+		]
+  },
+  "csbox-sizing": {
+    "prefix": "csbox-sizing",
+    "body": ["div",
+		"{",
+		"    box-sizing:border-box;",
+		"    -moz-box-sizing:border-box; /* Firefox */",
+		"    width:50%;",
+		"    float:left;",
+		"}",
+		]
+  },
+  "csfilter": {
+    "prefix": "csfilter",
+    "body": ["img {",
+		"    -webkit-filter: grayscale(100%); /* Chrome, Safari, Opera */",
+		"    filter: grayscale(100%);",
+		"}",
+		]
+  },
+  "csmedia": {
+    "prefix": "csmedia",
+    "body": [".responsive {",
+		"    padding: 0 6px;",
+		"    float: left;",
+		"    width: 24.99999%;",
+		"}",
+		"",
+		"@media only screen and (max-width: 700px){",
+		"    .responsive {",
+		"        width: 49.99999%;",
+		"        margin: 6px 0;",
+		"    }",
+		"}",
+		"",
+		"@media only screen and (max-width: 500px){",
+		"    .responsive {",
+		"        width: 100%;",
+		"    }",
+		"}",
+		]
+  },
+  "csbox-sizing1": {
+    "prefix": "csbox-sizing",
+    "body": ["* {",
+		"    box-sizing: border-box;",
+		"}",
+		]
+  },
+  "csflex": {
+    "prefix": "csflex",
+    "body": [".flex-container {",
+		"    display: -webkit-flex;",
+		"    display: flex;",
+		"    -webkit-justify-content: flex-end;",
+		"    justify-content: flex-end;",
+		"    width: 400px;",
+		"    height: 250px;",
+		"    background-color: lightgrey;",
+		"}",
+		]
+  },
+  "csscreen": {
+    "prefix": "csscreen",
+    "body": ["@media screen and (min-width: 480px) {",
+		"    body {",
+		"        background-color: lightgreen;",
+		"    }",
+		"}",
+		]
+  },
+  "c6": {
+    "prefix": "csborder-radius",
+    "body": [
+      "#rcorners7 {",
+      "    border-radius: 50px/15px;",
+      "    background: #8AC007;",
+      "    padding: 20px;",
+      "    width: 200px;",
+      "    height: 150px;",
+      "}",
+      "",
+      "#rcorners8 {",
+      "    border-radius: 15px/50px;",
+      "    background: #8AC007;",
+      "    padding: 20px;",
+      "    width: 200px;",
+      "    height: 150px;",
+      "}",
+      "",
+      "#rcorners9 {",
+      "    border-radius: 50%;",
+      "    background: #8AC007;",
+      "    padding: 20px;",
+      "    width: 200px;",
+      "    height: 150px;",
+      "}"
+    ]
+  },
+  "c2": {
+    "prefix": "cs_border",
+    "body": ["div", "{", "border:2px solid;", "border-radius:25px;", "}"]
+  },
+  "c3": {
+    "prefix": "cs_box-shadow",
+    "body": ["div", "{", "box-shadow: 10px 10px 5px #888888;", "}"]
+  },
+  "c4": {
+    "prefix": "cs-border-image",
+    "body": [
+      "div",
+      "{",
+      "border-image:url(border.png) 30 30 round;",
+      "-webkit-border-image:url(border.png) 30 30 round; /* Safari 5 and older */",
+      "-o-border-image:url(border.png) 30 30 round; /* Opera */",
+      "}"
+    ]
+  },
+  "c5": {
+    "prefix": "cs-border-radius",
+    "body": [
+      "#rcorners1 {",
+      "    border-radius: 25px;",
+      "    background: #8AC007;",
+      "    padding: 20px;",
+      "    width: 200px;",
+      "    height: 150px;",
+      "}",
+      "",
+      "#rcorners2 {",
+      "    border-radius: 25px;",
+      "    border: 2px solid #8AC007;",
+      "    padding: 20px;",
+      "    width: 200px;",
+      "    height: 150px;",
+      "}",
+      "",
+      "#rcorners3 {",
+      "    border-radius: 25px;",
+      "    background: url(paper.gif);",
+      "    background-position: left top;",
+      "    background-repeat: repeat;",
+      "    padding: 20px;",
+      "    width: 200px;",
+      "    height: 150px;",
+      "}"
+    ]
+  }
+}

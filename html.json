@@ -1,0 +1,169 @@
+{
+  // Place your snippets for html here. Each snippet is defined under a snippet name and has a prefix, body and
+  // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+  // same ids are connected.
+  // Example:
+  // "Print to console": {
+  // 	"prefix": "log",
+  // 	"body": [
+  // 		"console.log('$1');",
+  // 		"$2"
+  // 	],
+  // 	"description": "Log output to console"
+  // }
+  "httable": {
+    "prefix": "httable",
+    "body": [
+      "<table border=\"1\">",
+      "    <tr>",
+      "        <th>Header 1</th>",
+      "        <th>Header 2</th>",
+      "    </tr>",
+      "    <tr>",
+      "        <td>row 1, cell 1</td>",
+      "        <td>row 1, cell 2</td>",
+      "    </tr>",
+      "    <tr>",
+      "        <td>row 2, cell 1</td>",
+      "        <td>row 2, cell 2</td>",
+      "    </tr>",
+      "</table>"
+    ]
+  },
+  "htul": {
+    "prefix": "htul",
+    "body": ["<ul>", "<li>Coffee</li>", "<li>Milk</li>", "</ul>"]
+  },
+  "htol": {
+    "prefix": "htol",
+    "body": ["<ol>", "<li>Coffee</li>", "<li>Milk</li>", "</ol>"]
+  },
+  "htdl": {
+    "prefix": "htdl",
+    "body": [
+      "<dl>",
+      "<dt>Coffee</dt>",
+      "<dd>- black hot drink</dd>",
+      "<dt>Milk</dt>",
+      "<dd>- white cold drink</dd>",
+      "</dl>"
+    ]
+  },
+  "htform": {
+    "prefix": "htform",
+    "body": [
+      "<form>",
+      "First name: <input type=\"text\" name=\"firstname\"><br>",
+      "Last name: <input type=\"text\" name=\"lastname\">",
+      "</form>"
+    ]
+  },
+  "htradio": {
+    "prefix": "htradio",
+    "body": [
+      "<form>",
+      "<input type=\"radio\" name=\"sex\" value=\"male\">Male<br>",
+      "<input type=\"radio\" name=\"sex\" value=\"female\">Female",
+      "</form>"
+    ]
+  },
+  "htcheckbox": {
+    "prefix": "htcheckbox",
+    "body": [
+      "<form>",
+      "<input type=\"checkbox\" name=\"vehicle\" value=\"Bike\">I have a bike<br>",
+      "<input type=\"checkbox\" name=\"vehicle\" value=\"Car\">I have a car",
+      "</form>"
+    ]
+  },
+  "htSubmit": {
+    "prefix": "htSubmit",
+    "body": [
+      "<form name=\"input\" action=\"html_form_action.php\" method=\"get\">",
+      "Username: <input type=\"text\" name=\"user\">",
+      "<input type=\"submit\" value=\"Submit\">",
+      "</form>"
+    ]
+  },
+  "htoption": {
+    "prefix": "htoption",
+    "body": [
+      "<select>",
+      "  <option value=\"volvo\">Volvo</option>",
+      "  <option value=\"saab\">Saab</option>",
+      "  <option value=\"opel\">Opel</option>",
+      "  <option value=\"audi\">Audi</option>",
+      "</select>"
+    ]
+  },
+  "htDOCTYPE": {
+    "prefix": "htDOCTYPE",
+    "body": [
+      "<!DOCTYPE html>",
+      "<html>",
+      "<head>",
+      "<meta charset=\"utf-8\">",
+      "<title>文档标题</title>",
+      "</head>",
+      " ",
+      "<body>",
+      "文档内容......",
+      "</body>",
+      " ",
+      "</html>"
+    ]
+  },
+  "htdisplay-block": {
+    "prefix": "htdisplay-block",
+    "body": [
+      "header, section, footer, aside, nav, main, article, figure {",
+      "    display: block; ",
+      "}"
+    ]
+  },
+  "htCanvas": {
+    "prefix": "htCanvas",
+    "body": [
+      "<canvas id=\"myCanvas\" width=\"200\" height=\"100\"",
+      "style=\"border:1px solid #000000;\">",
+      "</canvas>"
+    ]
+  },
+  "htSVG": {
+    "prefix": "htSVG",
+    "body": [
+      "<!DOCTYPE html>",
+      "<html>",
+      "<body>",
+      " ",
+      "<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" height=\"190\">",
+      "  <polygon points=\"100,10 40,180 190,60 10,60 160,180\"",
+      "  style=\"fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;\">",
+      "</svg>",
+      " ",
+      "</body>",
+      "</html>"
+    ]
+  },
+  "htvideo": {
+    "prefix": "htvideo",
+    "body": [
+      "<video width=\"320\" height=\"240\" controls>",
+      "  <source src=\"movie.mp4\" type=\"video/mp4\">",
+      "  <source src=\"movie.ogg\" type=\"video/ogg\">",
+      "您的浏览器不支持Video标签。",
+      "</video>"
+    ]
+  },
+  "htaudio": {
+    "prefix": "htaudio",
+    "body": [
+      "<audio controls>",
+      "  <source src=\"horse.ogg\" type=\"audio/ogg\">",
+      "  <source src=\"horse.mp3\" type=\"audio/mpeg\">",
+      "您的浏览器不支持 audio 元素。",
+      "</audio>"
+    ]
+  }
+}

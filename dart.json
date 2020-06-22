@@ -1,0 +1,33 @@
+{
+	// Place your snippets for dart here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	"p1": {
+		"prefix": "log",
+		"body": [
+			"Row(",
+			"children: <Widget>[",
+			"Container(",
+			"height: 50, width: 100,",
+			"color: Colors.red,",
+			"), Container(",
+			"height: 100,",
+			"width: 100,",
+			"color: Colors.green,",
+			"), Container(",
+			"height: 150, width: 100,",
+			"color: Colors.blue,",
+			"),",
+			"], )",
+		],
+		"description": "Log output to console"
+	},
+	"p2": {
+		"prefix": "ft-AboutDialog",
+		"body": [
+			""
+		],
+	}
+}
