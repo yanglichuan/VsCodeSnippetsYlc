@@ -1,0 +1,4024 @@
+{
+  // Place your 全局 snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+  // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+  // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+  // used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  // Example:
+  // "Print to console": {
+  // 	"scope": "javascript,typescript",
+  // 	"prefix": "log",
+  // 	"body": [
+  // 		"console.log('$1');",
+  // 		"$2"
+  // 	],
+  // 	"description": "Log output to console"
+  // }
+
+  "ft-CustomPainter": {
+    "prefix": "ft-CustomPainter",
+    "scope": "dart",
+    "body": [
+      "import 'package:flutter/material.dart';",
+      "",
+      "class UnitPainter extends CustomPainter {",
+      "  Paint _paint;",
+      "  double width;",
+      "  double factor;",
+      "  Color color;",
+      "  Path _path1 = Path();",
+      "  Path _path2 = Path();",
+      "  Path _path3 = Path();",
+      "  Path _path4 = Path();",
+      "",
+      "  UnitPainter({this.width = 200.0, this.factor,this.color=Colors.blue}) {",
+      "    _paint = Paint();",
+      "  }",
+      "",
+      "  @override",
+      "  void paint(Canvas canvas, Size size) {",
+      "    canvas.translate(",
+      "        size.width / 2 - width * 0.5, size.height / 2 - width * 0.5);",
+      "",
+      "    canvas.save();",
+      "    canvas.translate(",
+      "        -size.width / 2 * (1 - factor), -size.width / 2 * (1 - factor));",
+      "    drawColor1(canvas);",
+      "    canvas.restore();",
+      "",
+      "    canvas.save();",
+      "    canvas.translate(",
+      "        size.width / 2 * (1 - factor), -size.width / 2 * (1 - factor));",
+      "    drawColor2(canvas);",
+      "    canvas.restore();",
+      "",
+      "    canvas.save();",
+      "    canvas.translate(",
+      "        size.width / 2 * (1 - factor), size.width / 2 * (1 - factor));",
+      "    drawColor3(canvas);",
+      "    canvas.restore();",
+      "",
+      "    canvas.save();",
+      "    canvas.translate(",
+      "        -size.width / 2 * (1 - factor), size.width / 2 * (1 - factor));",
+      "    drawColor4(canvas);",
+      "    canvas.restore();",
+      "  }",
+      "",
+      "  @override",
+      "  bool shouldRepaint(CustomPainter oldDelegate) {",
+      "    return true;",
+      "  }",
+      "",
+      "  void drawColor1(Canvas canvas) {",
+      "    _path1.moveTo(0, 0);",
+      "    _path1.lineTo(width * 0.618 * factor - 1, 0);",
+      "    _path1.lineTo(width * 0.5 - 1, width * 0.5 - 1);",
+      "    _path1.lineTo(0, width * (1 - 0.618) * factor - 1);",
+      "",
+      "    canvas.drawPath(_clipAngle(_path1), _paint..color = Colors.red);",
+      "  }",
+      "",
+      "  void drawColor2(Canvas canvas) {",
+      "    _path2.moveTo(width * 0.618 * factor, 0);",
+      "    _path2.lineTo(width, 0);",
+      "    _path2.lineTo(width, width * 0.618 * factor);",
+      "    _path2.lineTo(width * 0.5, width * 0.5);",
+      "",
+      "    canvas.drawPath(_clipAngle(_path2), _paint..color = Colors.blue);",
+      "  }",
+      "",
+      "  void drawColor3(Canvas canvas) {",
+      "    _path3.moveTo(width * 0.5 + 1, width * 0.5 + 1);",
+      "    _path3.lineTo(width, width * 0.618 * factor + 1);",
+      "    _path3.lineTo(width, width);",
+      "    _path3.lineTo(width * (1 - 0.618) * factor + 1, width);",
+      "    canvas.drawPath(_clipAngle(_path3), _paint..color = Colors.green);",
+      "  }",
+      "",
+      "  void drawColor4(Canvas canvas) {",
+      "    _path4.moveTo(0, width * (1 - 0.618) * factor);",
+      "    _path4.lineTo(width * 0.5, width * 0.5);",
+      "    _path4.lineTo(width * (1 - 0.618) * factor, width);",
+      "    _path4.lineTo(0, width);",
+      "    canvas.drawPath(_clipAngle(_path4), _paint..color = Colors.yellow);",
+      "  }",
+      "",
+      "  Path _clipAngle(Path path) {",
+      "    return Path.combine(",
+      "        PathOperation.difference,",
+      "        path,",
+      "        Path()",
+      "          ..addOval(Rect.fromCircle(",
+      "              center: Offset(width * 0.5, width * 0.5), radius: 25.0)));",
+      "  }",
+      "}"
+    ]
+  },
+  "ft-自定义view": {
+    "prefix": "ft-自定义view",
+    "scope": "dart",
+    "body": [
+      "",
+      "class InfoPanel extends StatelessWidget {",
+      "  final String title;",
+      "  final String info;",
+      "",
+      "",
+      "  InfoPanel({this.title, this.info});",
+      "",
+      "  @override",
+      "  Widget build(BuildContext context) {",
+      "    return Column(",
+      "      children: <Widget>[",
+      "        Row(",
+      "          crossAxisAlignment: CrossAxisAlignment.center,",
+      "          children: <Widget>[",
+      "            Circle(color: Theme.of(context).primaryColor,), Padding(",
+      "              padding: const EdgeInsets.only(left: 15,top: 15,bottom: 15),",
+      "              child: Text('$title',style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),",
+      "            )",
+      "          ],",
+      "        ),",
+      "        Panel(",
+      "        color: Theme.of(context).primaryColor.withAlpha(33),",
+      "          child: Text(",
+      "            '$info',",
+      "            style: TextStyle(color: Colors.grey,",
+      "                fontSize: 13,",
+      "                shadows: [",
+      "                  Shadow(",
+      "                      color: Colors.white,",
+      "                      offset: Offset(1,1)",
+      "                  )",
+      "                ]),",
+      "          ),",
+      "        ),",
+      "      ],",
+      "    );",
+      "  }",
+      "}",
+      "import 'package:flutter/material.dart';",
+      "",
+      "class Circle extends StatelessWidget {",
+      "  final Color color;",
+      "  final double radius;",
+      "  final bool showShadow;",
+      "  final Widget child;",
+      "",
+      "  const Circle({this.color=Colors.blue, this.radius=6,this.showShadow=true,this.child});",
+      "",
+      "  @override",
+      "  Widget build(BuildContext context) {",
+      "    return Container(",
+      "      alignment: Alignment.center,",
+      "      child: child==null?Container():child,",
+      "      width: 2*radius,",
+      "      height: 2*radius,",
+      "      decoration: BoxDecoration(",
+      "          color: color,",
+      "          shape: BoxShape.circle,",
+      "        boxShadow: [",
+      "          if (showShadow)",
+      "          BoxShadow(",
+      "          color: Colors.grey,",
+      "          offset: Offset(.5,.5),",
+      "          blurRadius: .5,",
+      "        )]",
+      "      ),",
+      "    );",
+      "  }",
+      "}"
+    ]
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": [
+      "///ylc可用于显示一个指定宽高的区域",
+      "  import 'package:flutter/material.dart';",
+      "  class CustomContainer extends StatelessWidget {",
+      "    @override",
+      "    Widget build(BuildContext context) {",
+      "      return Container(",
+      "        alignment: Alignment.topLeft,",
+      "        width: 200,",
+      "        height: 200 * 0.618,",
+      "        color: Colors.red.withAlpha(88),",
+      "      );",
+      "    }",
+      "  }",
+      "  ///ylc可以在区域中放入一个子组件",
+      "  import 'package:flutter/material.dart';",
+      "  class ContainerWithChild extends StatelessWidget {",
+      "    @override",
+      "    Widget build(BuildContext context) {",
+      "      return Container(",
+      "        alignment: Alignment.topLeft,",
+      "        padding: EdgeInsets.all(20),",
+      "        margin: EdgeInsets.all(10),",
+      "        width: 200,",
+      "        height: 200 * 0.618,",
+      "        color: Colors.grey.withAlpha(88),",
+      "        child: Icon(Icons.android),",
+      "      );",
+      "    }",
+      "  }",
+      "  ///ylc可对子组件进行对齐定位",
+      "  import 'package:flutter/material.dart';",
+      "  class ContainerAlignment extends StatelessWidget {",
+      "    @override",
+      "    Widget build(BuildContext context) {",
+      "      return Container(",
+      "        alignment: Alignment.bottomRight,",
+      "        width: 200,",
+      "        height: 200 * 0.618,",
+      "        color: Colors.grey.withAlpha(88),",
+      "        child: Icon(",
+      "          Icons.android,",
+      "          color: Colors.green,",
+      "        ),",
+      "      );",
+      "    }",
+      "  }",
+      "  ///ylc可对子组件进行装饰",
+      "  import 'package:flutter/material.dart';",
+      "  class ContainerDecoration extends StatelessWidget {",
+      "  ",
+      "    static const rainbow = <int>[",
+      "      0xffff0000,",
+      "      0xffFF7F00,",
+      "      0xffFFFF00,",
+      "      0xff00FF00,",
+      "      0xff00FFFF,",
+      "      0xff0000FF,",
+      "      0xff8B00FF",
+      "    ];",
+      "  ",
+      "    @override",
+      "    Widget build(BuildContext context) {",
+      "      var stops = [0.0, 1 / 6, 2 / 6, 3 / 6, 4 / 6, 5 / 6, 1.0];",
+      "      return Container(//容器",
+      "        alignment: Alignment.center,",
+      "        width: 200,",
+      "        height: 200 * 0.618,",
+      "        margin: EdgeInsets.all(20),",
+      "        padding: EdgeInsets.all(20),",
+      "        decoration: BoxDecoration(//添加渐变色",
+      "            gradient: LinearGradient(",
+      "                stops: stops,",
+      "                colors: rainbow.map((e) => Color(e)).toList()),",
+      "            borderRadius: BorderRadius.only(",
+      "                topLeft: Radius.circular(50),",
+      "                bottomRight: Radius.circular(50)),",
+      "            boxShadow: [",
+      "              BoxShadow(",
+      "                  color: Colors.grey,",
+      "                  offset: Offset(1, 1),",
+      "                  blurRa",
+      "  ///ylcContainer还具有变换性",
+      "  import 'package:flutter/material.dart';",
+      "  import 'dart:math';",
+      "  class ContainerTransform extends StatelessWidget {",
+      "    @override",
+      "    Widget build(BuildContext context) {",
+      "      return Container(",
+      "        //容器",
+      "        alignment: Alignment.center,",
+      "        color: Colors.cyanAccent,",
+      "        width: 150,",
+      "        height: 150 * 0.618,",
+      "        transform: Matrix4.skew(-pi / 10, 0),",
+      "        child: Text(",
+      "          \"Container\",",
+      "          style: TextStyle(fontSize: 20),",
+      "        ),",
+      "      );",
+      "    }",
+      "  }",
+      "  ///ylcContainer的约束性",
+      "  import 'package:flutter/material.dart';",
+      "  class ContainerConstraints extends StatelessWidget {",
+      "    @override",
+      "    Widget build(BuildContext context) {",
+      "      return Container(",
+      "        //容器",
+      "        color: Colors.blue,",
+      "        width: 200,",
+      "        height: 200 * 0.618,",
+      "        constraints: BoxConstraints(",
+      "            minWidth: 100, maxWidth: 150,",
+      "            minHeight: 20, maxHeight: 100),",
+      "      );",
+      "    }",
+      "  }"
+    ]
+  },
+  "ft-Text": {
+    "prefix": "ft-Text",
+    "scope": "dart",
+    "body": [
+      "  ///ylc文字的基本样式",
+      "  import 'package:flutter/material.dart';",
+      "  class CustomText extends StatelessWidget {",
+      "    @override",
+      "    Widget build(BuildContext context) {",
+      "      var style = TextStyle(",
+      "        color: Colors.blue,",
+      "        fontSize: 20,",
+      "        fontWeight: FontWeight.bold,",
+      "        fontStyle: FontStyle.italic,",
+      "        letterSpacing: 10,",
+      "      );",
+      "      return Container(",
+      "        width: 200,",
+      "        color: Colors.cyanAccent.withAlpha(33),",
+      "        height: 200 * 0.618 * 0.618,",
+      "        child: Text(\"toly-张风捷特烈-1994`\", style: style),",
+      "      );",
+      "    }",
+      "  }",
+      "  ///ylc文字阴影",
+      "  import 'package:flutter/material.dart';",
+      "  class ShadowText extends StatelessWidget {",
+      "    @override",
+      "    Widget build(BuildContext context) {",
+      "      return Text(",
+      "        \"张风捷特烈\",",
+      "        style: TextStyle(",
+      "            fontSize: 50,",
+      "            color: Colors.white,",
+      "            backgroundColor: Colors.black,",
+      "            shadows: [",
+      "              Shadow(",
+      "                  color: Colors.cyanAccent,",
+      "                  offset: Offset(1, 1),",
+      "                  blurRadius: 10),",
+      "              Shadow(",
+      "                  color: Colors.blue,",
+      "                  offset: Offset(-0.1, 0.1),",
+      "                  blurRadius: 10),",
+      "            ]),",
+      "      );",
+      "    }",
+      "  }",
+      "  ///ylc文字装饰线",
+      "  import 'package:flutter/material.dart';",
+      "  class DecorationText extends StatelessWidget {",
+      "    @override",
+      "    Widget build(BuildContext context) {",
+      "      return Text(",
+      "        \"19940328\",",
+      "        style: TextStyle(",
+      "            fontSize: 50,",
+      "            fontWeight: FontWeight.bold,",
+      "            decoration: TextDecoration.underline,",
+      "            decorationThickness: 3,",
+      "            decorationStyle: TextDecorationStyle.wavy,",
+      "            decorationColor: Colors.blue,",
+      "            fontStyle: FontStyle.italic,",
+      "            fontFamily: \"DancingScript\",",
+      "            letterSpacing: 10),",
+      "      );",
+      "    }",
+      "  }",
+      "  ///ylc文字对齐方式",
+      "  import 'package:flutter/material.dart';",
+      "  class TextAlignText extends StatelessWidget {",
+      "    @override",
+      "    Widget build(BuildContext context) {",
+      "      return Wrap(",
+      "        spacing: 10,",
+      "        runSpacing: 10,",
+      "        children: TextAlign.values",
+      "            .map((e) => Container(",
+      "          width: 120,",
+      "          color: Colors.cyanAccent.withAlpha(33),",
+      "          height: 120 * 0.618,",
+      "          child: Text(",
+      "            \" 张风捷特烈 toly \" * 3,",
+      "            textAlign: e,",
+      "          ),",
+      "        ))",
+      "            .toList(),",
+      "      );",
+      "    }",
+      "  }",
+      "  ///ylc文字方向与最大行数",
+      "  import 'package:flutter/material.dart';",
+      "  class TextDirectionText extends StatelessWidget {",
+      "    @override",
+      "    Widget build(BuildContext context) {",
+      "      return Wrap(",
+      "        spacing: 40,",
+      "        runSpacing: 10,",
+      "        children: TextDirection.values",
+      "            .map((e) => Container(",
+      "          width: 120,",
+      "          color: Colors.cyanAccent.withAlpha(33),",
+      "          height: 120 * 0.618,",
+      "          child: Text(",
+      "            \" 张风捷特烈 toly \" * 10,",
+      "            textDirection: e,",
+      "            maxLines: 3,",
+      "            overflow: TextOverflow.ellipsis,",
+      "          ),",
+      "        ))",
+      "            .toList(),",
+      "      );",
+      "    }",
+      "  }",
+      "  ///ylc是否包裹与越界效果",
+      "  import 'package:flutter/material.dart';",
+      "  class SoftWrapText extends StatelessWidget {",
+      "    @override",
+      "    Widget build(BuildContext context) {",
+      "      return Wrap(",
+      "        spacing: 10,",
+      "        runSpacing: 10,",
+      "        children: TextOverflow.values",
+      "            .map((e) => Container(",
+      "          width: 150,",
+      "          color: Colors.cyanAccent.withAlpha(33),",
+      "          height: 150 * 0.618 * 0.618,",
+      "          child: Text(\" 张风捷特烈 toly \" * 5,",
+      "              overflow: e,",
+      "              softWrap: false),",
+      "        ))",
+      "            .toList(),",
+      "      );",
+      "    }",
+      "  }",
+      "  ///ylc文字的基本样式",
+      "  import 'package:flutter/material.dart';",
+      "  class CustomText extends StatelessWidget {",
+      "    @override",
+      "    Widget build(BuildContext context) {",
+      "      var style = TextStyle(",
+      "        color: Colors.blue,",
+      "        fontSize: 20,",
+      "        fontWeight: FontWeight.bold,",
+      "        fontStyle: FontStyle.italic,",
+      "        letterSpacing: 10,",
+      "      );",
+      "      return Container(",
+      "        width: 200,",
+      "        color: Colors.cyanAccent.withAlpha(33),",
+      "        height: 200 * 0.618 * 0.618,",
+      "        child: Text(\"toly-张风捷特烈-1994`\", style: style),",
+      "      );",
+      "    }",
+      "  }"
+    ]
+  },
+  "ft-GestureDetector基本事件": {
+    "prefix": "ft-GestureDetector基本事件",
+    "scope": "dart",
+    "body": ["  ///ylcGestureDetector基本事件",
+		"  import 'package:flutter/material.dart';",
+		"  class CustomGestureDetector extends StatefulWidget {",
+		"    @override",
+		"    _CustomGestureDetectorState createState() => _CustomGestureDetectorState();",
+		"  }",
+		"  ",
+		"  class _CustomGestureDetectorState extends State<CustomGestureDetector> {",
+		"    var _info = '';",
+		"  ",
+		"    @override",
+		"    Widget build(BuildContext context) {",
+		"      return GestureDetector(",
+		"        onTap: () => setState(() => _info = 'onTap'),",
+		"        onDoubleTap: () => setState(() => _info = 'onDoubleTap'),",
+		"        onLongPress: () => setState(() => _info = 'onLongPress'),",
+		"        child: Container(",
+		"          alignment: Alignment.center,",
+		"          width: 300,",
+		"          height: 300 * 0.4,",
+		"          color: Colors.grey.withAlpha(33),",
+		"          child: Text(",
+		"            _info,",
+		"            style: TextStyle(fontSize: 18, color: Colors.blue),",
+		"          ),",
+		"        ),",
+		"      );",
+		"    }",
+		"  }",
+		"  ///ylcGestureDetector详情信息",
+		"  import 'package:flutter/material.dart';",
+		"  class TapGestureDetector extends StatefulWidget {",
+		"    @override",
+		"    _TapGestureDetectorState createState() => _TapGestureDetectorState();",
+		"  }",
+		"  ",
+		"  class _TapGestureDetectorState extends State<TapGestureDetector> {",
+		"    var _info = '';",
+		"  ",
+		"    @override",
+		"    Widget build(BuildContext context) {",
+		"      return GestureDetector(",
+		"        onTapDown: (detail) => setState(() => _info =",
+		"        'onTapDown:\n相对落点:${detail.localPosition}\n绝对落点:${detail.globalPosition}'),",
+		"        onTapUp: (detail) => setState(() => _info =",
+		"        'onTapUp:\n相对落点:${detail.localPosition}\n绝对落点:${detail.globalPosition}'),",
+		"        onTapCancel: () => setState(() => _info = 'onTapCancel'),",
+		"        child: Container(",
+		"          alignment: Alignment.center,",
+		"          width: 300,",
+		"          height: 300 * 0.618,",
+		"          color: Colors.grey.withAlpha(33),",
+		"          child: Text(",
+		"            _info,",
+		"            style: TextStyle(fontSize: 18, color: Colors.blue),",
+		"          ),",
+		"        ),",
+		"      );",
+		"    }",
+		"  }",
+		"  ///ylcGestureDetector的Pan事件",
+		"  import 'package:flutter/material.dart';",
+		"  class PanGestureDetector extends StatefulWidget {",
+		"    @override",
+		"    _PanGestureDetectorState createState() => _PanGestureDetectorState();",
+		"  }",
+		"  ",
+		"  class _PanGestureDetectorState extends State<PanGestureDetector> {",
+		"    var _info = '';",
+		"  ",
+		"    @override",
+		"    Widget build(BuildContext context) {",
+		"      return GestureDetector(",
+		"        onPanDown: (detail) => setState(() => _info =",
+		"        'onPanDown:\n相对落点:${detail.localPosition}\n绝对落点:${detail.globalPosition}'),",
+		"        onPanEnd: (detail) => setState(() => _info =",
+		"        'onPanEnd:\n初速度:${detail.primaryVelocity}\n最终速度:${detail.velocity}'),",
+		"        onPanUpdate: (detail) => setState(() => _info =",
+		"        'onPanUpdate:\n相对落点:${detail.localPosition}\n绝对落点:${detail.globalPosition}'),",
+		"        onPanStart: (detail) => setState(() => _info =",
+		"        'onPanStart:\n相对落点:${detail.localPosition}\n绝对落点:${detail.globalPosition}'),",
+		"        onPanCancel: () => setState(() => _info = 'onTapCancel'),",
+		"        child: SingleChildScrollView(",
+		"          child: Container(",
+		"            alignment: Alignment.center,",
+		"            width: 300,",
+		"            height: 300 * 0.618,",
+		"            color: Colors.grey.withAlpha(33),",
+		"            child: Text(",
+		"              _info,",
+		"              style: TextStyle(fontSize: 18, color: Colors.blue),",
+		"            ),",
+		"          ),",
+		"        ),",
+		"      );",
+		"    }",
+		"  }",
+		"  ",
+		]
+  },
+  "ft-ListView": {
+    "prefix": "ft-ListView",
+    "scope": "dart",
+    "body": [
+      "  ///ylc文字的基本样式",
+      "  import 'package:flutter/material.dart';",
+      "  class CustomText extends StatelessWidget {",
+      "    @override",
+      "    Widget build(BuildContext context) {",
+      "      var style = TextStyle(",
+      "        color: Colors.blue,",
+      "        fontSize: 20,",
+      "        fontWeight: FontWeight.bold,",
+      "        fontStyle: FontStyle.italic,",
+      "        letterSpacing: 10,",
+      "      );",
+      "      return Container(",
+      "        width: 200,",
+      "        color: Colors.cyanAccent.withAlpha(33),",
+      "        height: 200 * 0.618 * 0.618,",
+      "        child: Text(\"toly-张风捷特烈-1994`\", style: style),",
+      "      );",
+      "    }",
+      "  }",
+      "  ///ylc文字阴影",
+      "  import 'package:flutter/material.dart';",
+      "  class ShadowText extends StatelessWidget {",
+      "    @override",
+      "    Widget build(BuildContext context) {",
+      "      return Text(",
+      "        \"张风捷特烈\",",
+      "        style: TextStyle(",
+      "            fontSize: 50,",
+      "            color: Colors.white,",
+      "            backgroundColor: Colors.black,",
+      "            shadows: [",
+      "              Shadow(",
+      "                  color: Colors.cyanAccent,",
+      "                  offset: Offset(1, 1),",
+      "                  blurRadius: 10),",
+      "              Shadow(",
+      "                  color: Colors.blue,",
+      "                  offset: Offset(-0.1, 0.1),",
+      "                  blurRadius: 10),",
+      "            ]),",
+      "      );",
+      "    }",
+      "  }",
+      "  ///ylc文字装饰线",
+      "  import 'package:flutter/material.dart';",
+      "  class DecorationText extends StatelessWidget {",
+      "    @override",
+      "    Widget build(BuildContext context) {",
+      "      return Text(",
+      "        \"19940328\",",
+      "        style: TextStyle(",
+      "            fontSize: 50,",
+      "            fontWeight: FontWeight.bold,",
+      "            decoration: TextDecoration.underline,",
+      "            decorationThickness: 3,",
+      "            decorationStyle: TextDecorationStyle.wavy,",
+      "            decorationColor: Colors.blue,",
+      "            fontStyle: FontStyle.italic,",
+      "            fontFamily: \"DancingScript\",",
+      "            letterSpacing: 10),",
+      "      );",
+      "    }",
+      "  }",
+      "  ///ylc文字对齐方式",
+      "  import 'package:flutter/material.dart';",
+      "  class TextAlignText extends StatelessWidget {",
+      "    @override",
+      "    Widget build(BuildContext context) {",
+      "      return Wrap(",
+      "        spacing: 10,",
+      "        runSpacing: 10,",
+      "        children: TextAlign.values",
+      "            .map((e) => Container(",
+      "          width: 120,",
+      "          color: Colors.cyanAccent.withAlpha(33),",
+      "          height: 120 * 0.618,",
+      "          child: Text(",
+      "            \" 张风捷特烈 toly \" * 3,",
+      "            textAlign: e,",
+      "          ),",
+      "        ))",
+      "            .toList(),",
+      "      );",
+      "    }",
+      "  }",
+      "  ///ylc文字方向与最大行数",
+      "  import 'package:flutter/material.dart';",
+      "  class TextDirectionText extends StatelessWidget {",
+      "    @override",
+      "    Widget build(BuildContext context) {",
+      "      return Wrap(",
+      "        spacing: 40,",
+      "        runSpacing: 10,",
+      "        children: TextDirection.values",
+      "            .map((e) => Container(",
+      "          width: 120,",
+      "          color: Colors.cyanAccent.withAlpha(33),",
+      "          height: 120 * 0.618,",
+      "          child: Text(",
+      "            \" 张风捷特烈 toly \" * 10,",
+      "            textDirection: e,",
+      "            maxLines: 3,",
+      "            overflow: TextOverflow.ellipsis,",
+      "          ),",
+      "        ))",
+      "            .toList(),",
+      "      );",
+      "    }",
+      "  }",
+      "  ///ylc是否包裹与越界效果",
+      "  import 'package:flutter/material.dart';",
+      "  class SoftWrapText extends StatelessWidget {",
+      "    @override",
+      "    Widget build(BuildContext context) {",
+      "      return Wrap(",
+      "        spacing: 10,",
+      "        runSpacing: 10,",
+      "        children: TextOverflow.values",
+      "            .map((e) => Container(",
+      "          width: 150,",
+      "          color: Colors.cyanAccent.withAlpha(33),",
+      "          height: 150 * 0.618 * 0.618,",
+      "          child: Text(\" 张风捷特烈 toly \" * 5,",
+      "              overflow: e,",
+      "              softWrap: false),",
+      "        ))",
+      "            .toList(),",
+      "      );",
+      "    }",
+      "  }",
+      "  ",
+      "  ///ylcListView基本使用",
+      "  import 'package:flutter/material.dart';",
+      "  class CustomListView extends StatelessWidget {",
+      "    final data = <Color>[",
+      "      Colors.purple[50],",
+      "      Colors.purple[100],",
+      "      Colors.purple[200],",
+      "      Colors.purple[300],",
+      "      Colors.purple[400],",
+      "      Colors.purple[500],",
+      "      Colors.purple[600],",
+      "      Colors.purple[700],",
+      "      Colors.purple[800],",
+      "      Colors.purple[900],",
+      "    ];",
+      "  ",
+      "    @override",
+      "    Widget build(BuildContext context) {",
+      "      return Container(",
+      "        height: 200,",
+      "        child:  ListView(",
+      "          padding: EdgeInsets.symmetric(horizontal: 5),",
+      "          children: data",
+      "              .map((color) => Container(",
+      "            alignment: Alignment.center,",
+      "            width: 100,",
+      "            height: 50,",
+      "            color: color,",
+      "            child: Text(",
+      "              colorString(color),",
+      "              style: TextStyle(color: Colors.white, shadows: [",
+      "                Shadow(",
+      "                    color: Colors.black,",
+      "                    offset: Offset(.5, .5),",
+      "                    blurRadius: 2)",
+      "              ]),",
+      "            ),",
+      "          ))",
+      "              .toList(),",
+      "        ),",
+      "      );",
+      "    }",
+      "  ",
+      "    String colorString(Color color) =>",
+      "        \"#${color.value.toRadixString(16).padLeft(8, '0').toUpperCase()}\";",
+      "  }",
+      "  ///ylcListView横向滑动",
+      "  import 'package:flutter/material.dart';",
+      "  class HorizontalListView extends StatelessWidget {",
+      "    final data = <Color>[",
+      "      Colors.purple[50],",
+      "      Colors.purple[100],",
+      "      Colors.purple[200],",
+      "      Colors.purple[300],",
+      "      Colors.purple[400],",
+      "      Colors.purple[500],",
+      "      Colors.purple[600],",
+      "      Colors.purple[700],",
+      "      Colors.purple[800],",
+      "      Colors.purple[900],",
+      "    ];",
+      "  ",
+      "    @override",
+      "    Widget build(BuildContext context) {",
+      "      return Container(",
+      "        height: 200,",
+      "        child: ListView(",
+      "          reverse: true,",
+      "          shrinkWrap: true,",
+      "          scrollDirection: Axis.horizontal,",
+      "          children: data",
+      "              .map((color) => Container(",
+      "            alignment: Alignment.center,",
+      "            width: 100,",
+      "            height: 50,",
+      "            color: color,",
+      "            child: Text(",
+      "              colorString(color),",
+      "              style: TextStyle(color: Colors.white, shadows: [",
+      "                Shadow(",
+      "                    color: Colors.black,",
+      "                    offset: Offset(.5, .5),",
+      "                    blurRadius: 2)",
+      "              ]),",
+      "            ),",
+      "          ))",
+      "              .toList(),",
+      "        ),",
+      "      );",
+      "    }",
+      "  ",
+      "    String colorString(Color color) =>",
+      "        \"#${color.value.toRadixString(16).padLeft(8, '0').toUpperCase()}\";",
+      "  }",
+      "  ///ylcListView.separated构造",
+      "  import 'package:flutter/material.dart';",
+      "  class SeparatedListView extends StatelessWidget {",
+      "    final data = <Color>[",
+      "      Colors.purple[50],",
+      "      Colors.purple[100],",
+      "      Colors.purple[200],",
+      "      Colors.purple[300],",
+      "      Colors.purple[400],",
+      "      Colors.purple[500],",
+      "      Colors.purple[600],",
+      "      Colors.purple[700],",
+      "      Colors.purple[800],",
+      "      Colors.purple[900],",
+      "    ];",
+      "  ",
+      "    @override",
+      "    Widget build(BuildContext context) {",
+      "      return Container(",
+      "        height: 200,",
+      "        child: ListView.separated(",
+      "          separatorBuilder: (context, index) => Divider(",
+      "            thickness: 1,",
+      "            height: 1,",
+      "            color: Colors.orange,",
+      "          ),",
+      "          itemCount: data.length,",
+      "          itemBuilder: (context, index) => _buildItem(data[index]),",
+      "        ),",
+      "      );",
+      "    }",
+      "  ",
+      "    String colorString(Color color) =>",
+      "        \"#${color.value.toRadixString(16).padLeft(8, '0').toUpperCase()}\";",
+      "  ",
+      "    Widget _buildItem(Color color) => Container(",
+      "      alignment: Alignment.center,",
+      "      width: 100,",
+      "      height: 50,",
+      "      color: color,",
+      "      child: Text(",
+      "        colorString(color),",
+      "        style: TextStyle(color: Colors.white, shadows: [",
+      "          Shadow(color: Colors.black, offset: Offset(.5, .5), blurRadius: 2)",
+      "        ]),",
+      "      ),",
+      "    );",
+      "  }",
+      "  ",
+      "  ///ylcListView.builder构造",
+      "  import 'package:flutter/material.dart';",
+      "  class BuilderListView extends StatelessWidget {",
+      "    final data = <Color>[",
+      "      Colors.purple[50],",
+      "      Colors.purple[100],",
+      "      Colors.purple[200],",
+      "      Colors.purple[300],",
+      "      Colors.purple[400],",
+      "      Colors.purple[500],",
+      "      Colors.purple[600],",
+      "      Colors.purple[700],",
+      "      Colors.purple[800],",
+      "      Colors.purple[900],",
+      "    ];",
+      "  ",
+      "    @override",
+      "    Widget build(BuildContext context) {",
+      "      return Container(",
+      "        height: 200,",
+      "        child: ListView.builder(",
+      "          itemCount: data.length,",
+      "          itemBuilder: (context, index) => _buildItem(data[index]),",
+      "        ),",
+      "      );",
+      "    }",
+      "  ",
+      "    String colorString(Color color) =>",
+      "        \"#${color.value.toRadixString(16).padLeft(8, '0').toUpperCase()}\";",
+      "  ",
+      "    Widget _buildItem(Color color) => Container(",
+      "      alignment: Alignment.center,",
+      "      width: 100,",
+      "      height: 50,",
+      "      color: color,",
+      "      child: Text(",
+      "        colorString(color),",
+      "        style: TextStyle(color: Colors.white, shadows: [",
+      "          Shadow(color: Colors.black, offset: Offset(.5, .5), blurRadius: 2)",
+      "        ]),",
+      "      ),",
+      "    );",
+      "  }"
+    ]
+  },
+  "ft-GridView": {
+    "prefix": "ft-GridView",
+    "scope": "dart",
+    "body": ["  ///ylcGestureDetector基本事件",
+		"  import 'package:flutter/material.dart';",
+		"  class CustomGestureDetector extends StatefulWidget {",
+		"    @override",
+		"    _CustomGestureDetectorState createState() => _CustomGestureDetectorState();",
+		"  }",
+		"  ",
+		"  class _CustomGestureDetectorState extends State<CustomGestureDetector> {",
+		"    var _info = '';",
+		"  ",
+		"    @override",
+		"    Widget build(BuildContext context) {",
+		"      return GestureDetector(",
+		"        onTap: () => setState(() => _info = 'onTap'),",
+		"        onDoubleTap: () => setState(() => _info = 'onDoubleTap'),",
+		"        onLongPress: () => setState(() => _info = 'onLongPress'),",
+		"        child: Container(",
+		"          alignment: Alignment.center,",
+		"          width: 300,",
+		"          height: 300 * 0.4,",
+		"          color: Colors.grey.withAlpha(33),",
+		"          child: Text(",
+		"            _info,",
+		"            style: TextStyle(fontSize: 18, color: Colors.blue),",
+		"          ),",
+		"        ),",
+		"      );",
+		"    }",
+		"  }",
+		"  ///ylcGestureDetector详情信息",
+		"  import 'package:flutter/material.dart';",
+		"  class TapGestureDetector extends StatefulWidget {",
+		"    @override",
+		"    _TapGestureDetectorState createState() => _TapGestureDetectorState();",
+		"  }",
+		"  ",
+		"  class _TapGestureDetectorState extends State<TapGestureDetector> {",
+		"    var _info = '';",
+		"  ",
+		"    @override",
+		"    Widget build(BuildContext context) {",
+		"      return GestureDetector(",
+		"        onTapDown: (detail) => setState(() => _info =",
+		"        'onTapDown:\n相对落点:${detail.localPosition}\n绝对落点:${detail.globalPosition}'),",
+		"        onTapUp: (detail) => setState(() => _info =",
+		"        'onTapUp:\n相对落点:${detail.localPosition}\n绝对落点:${detail.globalPosition}'),",
+		"        onTapCancel: () => setState(() => _info = 'onTapCancel'),",
+		"        child: Container(",
+		"          alignment: Alignment.center,",
+		"          width: 300,",
+		"          height: 300 * 0.618,",
+		"          color: Colors.grey.withAlpha(33),",
+		"          child: Text(",
+		"            _info,",
+		"            style: TextStyle(fontSize: 18, color: Colors.blue),",
+		"          ),",
+		"        ),",
+		"      );",
+		"    }",
+		"  }",
+		"  ///ylcGestureDetector的Pan事件",
+		"  import 'package:flutter/material.dart';",
+		"  class PanGestureDetector extends StatefulWidget {",
+		"    @override",
+		"    _PanGestureDetectorState createState() => _PanGestureDetectorState();",
+		"  }",
+		"  ",
+		"  class _PanGestureDetectorState extends State<PanGestureDetector> {",
+		"    var _info = '';",
+		"  ",
+		"    @override",
+		"    Widget build(BuildContext context) {",
+		"      return GestureDetector(",
+		"        onPanDown: (detail) => setState(() => _info =",
+		"        'onPanDown:\n相对落点:${detail.localPosition}\n绝对落点:${detail.globalPosition}'),",
+		"        onPanEnd: (detail) => setState(() => _info =",
+		"        'onPanEnd:\n初速度:${detail.primaryVelocity}\n最终速度:${detail.velocity}'),",
+		"        onPanUpdate: (detail) => setState(() => _info =",
+		"        'onPanUpdate:\n相对落点:${detail.localPosition}\n绝对落点:${detail.globalPosition}'),",
+		"        onPanStart: (detail) => setState(() => _info =",
+		"        'onPanStart:\n相对落点:${detail.localPosition}\n绝对落点:${detail.globalPosition}'),",
+		"        onPanCancel: () => setState(() => _info = 'onTapCancel'),",
+		"        child: SingleChildScrollView(",
+		"          child: Container(",
+		"            alignment: Alignment.center,",
+		"            width: 300,",
+		"            height: 300 * 0.618,",
+		"            color: Colors.grey.withAlpha(33),",
+		"            child: Text(",
+		"              _info,",
+		"              style: TextStyle(fontSize: 18, color: Colors.blue),",
+		"            ),",
+		"          ),",
+		"        ),",
+		"      );",
+		"    }",
+		"  }",
+		"  ",
+		"  ///ylcGridView.count构造",
+		"  import 'package:flutter/material.dart';",
+		"  class CustomGridView extends StatelessWidget {",
+		"    final data = List.generate(128, (i) => Color(0xFFFF00FF - 2*i));",
+		"  ",
+		"    @override",
+		"    Widget build(BuildContext context) {",
+		"      return Container(",
+		"        height: 200,",
+		"        child: GridView.count(",
+		"          crossAxisCount: 4,",
+		"          mainAxisSpacing: 2,",
+		"          crossAxisSpacing: 2,",
+		"          childAspectRatio: 1/0.618,",
+		"          children: data",
+		"              .map((color) => _buildItem(color))",
+		"              .toList(),",
+		"        ),",
+		"      );",
+		"    }",
+		"  ",
+		"    Container _buildItem(Color color) => Container(",
+		"      alignment: Alignment.center,",
+		"      width: 100,",
+		"      height: 30,",
+		"      color: color,",
+		"      child: Text(",
+		"        colorString(color),",
+		"        style: TextStyle(color: Colors.white, shadows: [",
+		"          Shadow(",
+		"              color: Colors.black,",
+		"              offset: Offset(.5, .5),",
+		"              blurRadius: 2)",
+		"        ]),",
+		"      ),",
+		"    );",
+		"  ",
+		"    String colorString(Color color) =>",
+		"        \"#${color.value.toRadixString(16).padLeft(8, '0').toUpperCase()}\";",
+		"  }",
+		"  ///ylcGridView滑动方向",
+		"  import 'package:flutter/material.dart';",
+		"  class HorizontalGridView extends StatelessWidget {",
+		"    final data = List.generate(128, (i) => Color(0xFF00FFFF - 2*i));",
+		"  ",
+		"    @override",
+		"    Widget build(BuildContext context) {",
+		"      return Container(",
+		"        height: 200,",
+		"        child: GridView.count(",
+		"          scrollDirection: Axis.horizontal,",
+		"          reverse: true,",
+		"          crossAxisCount: 4,",
+		"          mainAxisSpacing: 2,",
+		"          crossAxisSpacing: 2,",
+		"          childAspectRatio: 0.618,",
+		"          children: data",
+		"              .map((color) => _buildItem(color))",
+		"              .toList(),",
+		"        ),",
+		"      );",
+		"    }",
+		"  ",
+		"    Container _buildItem(Color color) => Container(",
+		"      alignment: Alignment.center,",
+		"      width: 100,",
+		"      height: 30,",
+		"      color: color,",
+		"      child: Text(",
+		"        colorString(color),",
+		"        style: TextStyle(color: Colors.white, shadows: [",
+		"          Shadow(",
+		"              color: Colors.black,",
+		"              offset: Offset(.5, .5),",
+		"              blurRadius: 2)",
+		"        ]),",
+		"      ),",
+		"    );",
+		"  ",
+		"    String colorString(Color color) =>",
+		"        \"#${color.value.toRadixString(16).padLeft(8, '0').toUpperCase()}\";",
+		"  }",
+		"  ///ylcGridView.extent构造",
+		"  import 'package:flutter/material.dart';",
+		"  class ExtentGridView extends StatelessWidget {",
+		"    final data = List.generate(128, (i) => Color(0xFF00FFFF - 2*i));",
+		"  ",
+		"    @override",
+		"    Widget build(BuildContext context) {",
+		"      return Container(",
+		"        height: 200,",
+		"        child: GridView.extent(",
+		"          scrollDirection: Axis.horizontal,",
+		"          maxCrossAxisExtent: 80.0,",
+		"          mainAxisSpacing: 2,",
+		"          crossAxisSpacing: 2,",
+		"          childAspectRatio: 0.618,",
+		"          children: data",
+		"              .map((color) => _buildItem(color))",
+		"              .toList(),",
+		"        ),",
+		"      );",
+		"    }",
+		"  ",
+		"    Container _buildItem(Color color) => Container(",
+		"      alignment: Alignment.center,",
+		"      width: 100,",
+		"      height: 30,",
+		"      color: color,",
+		"      child: Text(",
+		"        colorString(color),",
+		"        style: TextStyle(color: Colors.white, shadows: [",
+		"          Shadow(",
+		"              color: Colors.black,",
+		"              offset: Offset(.5, .5),",
+		"              blurRadius: 2)",
+		"        ]),",
+		"      ),",
+		"    );",
+		"  ",
+		"    String colorString(Color color) =>",
+		"        \"#${color.value.toRadixString(16).padLeft(8, '0').toUpperCase()}\";",
+		"  }",
+		"  ///ylcGridView.builder构造",
+		"  import 'package:flutter/material.dart';",
+		"  class BuilderGridView extends StatelessWidget {",
+		"    final data = List.generate(128, (i) => Color(0xFF33FFF - 2*i));",
+		"  ",
+		"    @override",
+		"    Widget build(BuildContext context) {",
+		"      return Container(",
+		"        height: 200,",
+		"        child: GridView.builder(",
+		"            itemCount: data.length,",
+		"            scrollDirection: Axis.vertical,",
+		"            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(//网格代理：定交叉轴数目",
+		"                crossAxisCount: 4,//条目个数",
+		"                mainAxisSpacing: 5,//主轴间距",
+		"                crossAxisSpacing: 5,//交叉轴间距",
+		"                childAspectRatio:1/0.618),",
+		"            itemBuilder: (_, int position)=> _buildItem(data[position])",
+		"        ),",
+		"      );",
+		"    }",
+		"  ",
+		"    Container _buildItem(Color color) => Container(",
+		"      alignment: Alignment.center,",
+		"      width: 100,",
+		"      height: 30,",
+		"      color: color,",
+		"      child: Text(",
+		"        colorString(color),",
+		"        style: TextStyle(color: Colors.white, shadows: [",
+		"          Shadow(",
+		"              color: Colors.black,",
+		"              offset: Offset(.5, .5),",
+		"              blurRadius: 2)",
+		"        ]),",
+		"      ),",
+		"    );",
+		"  ",
+		"    String colorString(Color color) =>",
+		"        \"#${color.value.toRadixString(16).padLeft(8, '0').toUpperCase()}\";",
+		"  }",
+		]
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  },
+  "ft-": {
+    "prefix": "ft-",
+    "scope": "dart",
+    "body": []
+  }
+}

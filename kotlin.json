@@ -6,11 +6,19 @@
   // Example:
   "kt-包的定义与导入": {
     "prefix": "kt-包的定义与导入",
-    "body": ["package my.demo", "", "import kotlin.text.*"]
+    "body": [
+      "package my.demo",
+      "",
+      "import kotlin.text.*"
+    ]
   },
   "kt-程序入口点": {
     "prefix": "kt-程序入口点",
-    "body": ["fun main() {", "    println(\"Hello world!\")", "}"]
+    "body": [
+      "fun main() {",
+      "    println(\"Hello world!\")",
+      "}"
+    ]
   },
   "kt-函数": {
     "prefix": "kt-函数",
@@ -18,7 +26,6 @@
       "fun printSum(a: Int, b: Int): Unit {",
       "    println(\"sum of $a and $b is ${a + b}\")",
       "}",
-
       "fun sum(a: Int, b: Int) = a + b",
       "fun sum(a: Int, b: Int): Int {",
       "    return a + b",
@@ -30,7 +37,6 @@
     "body": [
       "var x = 5 // 自动推断出 `Int` 类型",
       "x += 1",
-
       "val a: Int = 1  // 立即赋值",
       "val b = 2   // 自动推断出 `Int` 类型",
       "val c: Int  // 如果没有初始值类型不能省略",
@@ -53,7 +59,6 @@
     "prefix": "kt-条件表达式",
     "body": [
       "fun maxOf(a: Int, b: Int) = if (a > b) a else b",
-
       "fun maxOf(a: Int, b: Int): Int {",
       "    if (a > b) {",
       "        return a",
@@ -91,14 +96,12 @@
       "",
       "    return null",
       "}",
-
       "fun getStringLength(obj: Any): Int? {",
       "    if (obj !is String) return null",
       "",
       "    // `obj` 在这一分支自动转换为 `String`",
       "    return obj.length",
       "}",
-
       "fun getStringLength(obj: Any): Int? {",
       "    if (obj is String) {",
       "        // `obj` 在该条件分支内自动转换成 `String`",
@@ -117,7 +120,6 @@
       "for (index in items.indices) {",
       "    println(\"item at $index is ${items[index]}\")",
       "}",
-
       "val items = listOf(\"apple\", \"banana\", \"kiwifruit\")",
       "for (item in items) {",
       "    println(item)",
@@ -185,7 +187,6 @@
       "  .sortedBy { it }",
       "  .map { it.toUpperCase() }",
       "  .forEach { println(it) }",
-
       "when {",
       "    \"orange\" in items -> println(\"juicy\")",
       "    \"apple\" in items -> println(\"apple is fine too\")",
@@ -197,11 +198,15 @@
   },
   "kt-dataclass": {
     "prefix": "kt-dataclass",
-    "body": ["data class Customer(val name: String, val email: String)"]
+    "body": [
+      "data class Customer(val name: String, val email: String)"
+    ]
   },
   "kt-函数的默认参数": {
     "prefix": "kt-函数的默认参数",
-    "body": ["fun foo(a: Int = 0, b: String = \"\") { …… }"]
+    "body": [
+      "fun foo(a: Int = 0, b: String = \"\") { …… }"
+    ]
   },
   "kt-过滤 list": {
     "prefix": "kt-过滤 list",
@@ -249,19 +254,30 @@
   },
   "kt-只读 list": {
     "prefix": "kt-只读 list",
-    "body": ["val list = listOf(\"a\", \"b\", \"c\")"]
+    "body": [
+      "val list = listOf(\"a\", \"b\", \"c\")"
+    ]
   },
   "kt-只读 map": {
     "prefix": "kt-只读 map",
-    "body": ["val map = mapOf(\"a\" to 1, \"b\" to 2, \"c\" to 3)"]
+    "body": [
+      "val map = mapOf(\"a\" to 1, \"b\" to 2, \"c\" to 3)"
+    ]
   },
   "kt-访问 map": {
     "prefix": "kt-访问 map",
-    "body": ["println(map[\"key\"])", "map[\"key\"] = value"]
+    "body": [
+      "println(map[\"key\"])",
+      "map[\"key\"] = value"
+    ]
   },
   "kt-延迟属性": {
     "prefix": "kt-延迟属性",
-    "body": ["val p: String by lazy {", "    // 计算该字符串", "}"]
+    "body": [
+      "val p: String by lazy {",
+      "    // 计算该字符串",
+      "}"
+    ]
   },
   "kt-扩展函数": {
     "prefix": "kt-扩展函数",
@@ -273,7 +289,11 @@
   },
   "kt-创建单例": {
     "prefix": "kt-创建单例",
-    "body": ["object Resource {", "    val name = \"Name\"", "}"]
+    "body": [
+      "object Resource {",
+      "    val name = \"Name\"",
+      "}"
+    ]
   },
   "kt-If not null 缩写": {
     "prefix": "kt-If not null 缩写",
@@ -394,7 +414,11 @@
   },
   "kt-交换两个变量": {
     "prefix": "kt-交换两个变量",
-    "body": ["var a = 1", "var b = 2", "a = b.also { b = a }"]
+    "body": [
+      "var a = 1",
+      "var b = 2",
+      "a = b.also { b = a }"
+    ]
   },
   "kt-数字": {
     "prefix": "kt-数字",
@@ -551,7 +575,6 @@
       "    print(\"Choose b\")",
       "    b",
       "}",
-
       "// 传统用法",
       "var max = a ",
       "if (a < b) max = b",
@@ -5921,13 +5944,147 @@
       ""
     ]
   },
-  "kt-": {
-    "prefix": "kt-",
-    "body": []
+  "kt-Custom Views - overload": {
+    "prefix": "kt-Custom Views - overload",
+    "body": [
+      "Create a class that extends View",
+      "To do this, create a class as we saw earlier. Make it extend from View for instance, but do not indicate any constructor:",
+      "",
+      "class KotlinView : View {",
+      "}",
+      "You’ll see that this code won’t compile, because it requires calling the constructor of the parent class.",
+      "",
+      "If you know that you are only inflating your view from Kotlin code, for example, you could use the unique constructor form we already saw:",
+      "",
+      "class KotlinView(context: Context?) : View(context) {",
+      "}",
+      "But be careful, because if someone decides to add this view to an XML, it will fail.",
+      "",
+      "Spoiler: Do you see that question mark right after the Context? In Kotlin, if we want a variable or parameter to be null, we have to explicitly specify it using a question mark. Then the compiler will force us to check it’s not null before doing anything with it. We’ll see it in next articles.",
+      "",
+      "Implement the multiple constructors",
+      "The constructors use the constructor reserved word, and need to define in their declaration which constructor they call. It can be another constructor of the same class (using this) or the one of the parent class (using super).",
+      "",
+      "This is how you define the constructors for an Android view:",
+      "",
+      "class KotlinView : View {",
+      "    constructor(context: Context) : this(context, null)",
+      "    constructor(context: Context, attrs: AttributeSet?) : this(context, attrs, 0)",
+      "    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {",
+      "        ...",
+      "    }",
+      "}",
+      "An easier implementation",
+      "The alternative that Kirill mentions in the comments (thanks for that!) is much simpler and easier to read. It’s based assigning default values for constructor arguments, but needs a little tweak.",
+      "",
+      "The thing is that when you create a constructor (or any function) with default values for some arguments, the generated bytecode only allows to use those default values in Kotlin. If you use that constructor in Java, you will be forced to specify a value for all arguments.",
+      "",
+      "That is because Java doesn’t have this language feature. In Java, you would usually solve it by generating function overloads with all the variations you need.",
+      "",
+      "You can get this code automatically generated by using the @JvmOverloads annotation in Kotlin.",
+      "",
+      "The code would be like this:",
+      "",
+      "class KotlinView @JvmOverloads constructor(",
+      "        context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0",
+      ") : View(context, attrs, defStyleAttr)",
+      "Conclusion",
+      "Once you see it, it’s not so complicated to generate your custom views thanks to the existence of multiple constructors, and even much easier using the @JvmOverloads annotation.",
+    ]
   },
-  "kt-": {
-    "prefix": "kt-",
-    "body": []
+  "kt-JvmOverloads 自定义 View 的坑": {
+    "prefix": "kt-JvmOverloads 自定义 View 的坑",
+    "body": [
+      "详细的可以看这一篇文章： 《Do not always trust @JvmOverloads》",
+      "",
+      "@JvmOverloads 注解是用来干撒的？",
+      "  /**",
+      " * Instructs the Kotlin compiler to generate overloads for this function that substitute default parameter values.",
+      " *",
+      " * If a method has N parameters and M of which have default values, M overloads are generated: the first one",
+      " * takes N-1 parameters (all but the last one that takes a default value), the second takes N-2 parameters, and so on.",
+      " */",
+      "@Target(AnnotationTarget.FUNCTION, AnnotationTarget.CONSTRUCTOR)",
+      "@Retention(AnnotationRetention.BINARY)",
+      "@MustBeDocumented",
+      "public annotation class JvmOverloads",
+      "也就是说，如果方法参数中有默认值的，那么这个注解可以帮我们生成多个重载方法，这样方便我们调用，可以省掉一些不关心的参数。",
+      "",
+      "比如这样：",
+      "",
+      "   @JvmOverloads",
+      "    fun test(name: String = \"hello\",  code: Int = 0){",
+      "            ",
+      "     }",
+      "最终会帮我们重载三个方法出来",
+      "",
+      "    @JvmOverloads",
+      "      public final void test(@NotNull String name, int code) {",
+      "         Intrinsics.checkParameterIsNotNull(name, \"name\");",
+      "      }",
+      "",
+      "      @JvmOverloads",
+      "      public final void test(@NotNull String name) {",
+      "         test$default(this, name, 0, 2, (Object)null);",
+      "      }",
+      "",
+      "      @JvmOverloads",
+      "      public final void test() {",
+      "         test$default(this, (String)null, 0, 3, (Object)null);",
+      "      }",
+      "@JvmOverloads 自定义View",
+      "  class EmoticonView @JvmOverloads constructor(",
+      "        context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0",
+      ") : RelativeLayout(context, attrs, defStyleAttr)",
+      "按照上面的介绍，会帮忙自动生成多个重载方法，那么坑来了的，注意这个 defStyleAttr = 0 。。。",
+      "",
+      "我们先看看 EditText 的构造函数， 如果是XML来写的布局，那么会调用第二个构造函数，也就是 public EditText(Context context, AttributeSet attrs) , 那么默认传入的 样式 defStyleAttr 就是 com.android.internal.R.attr.editTextStyle",
+      "",
+      " public class EditText extends TextView {",
+      "    public EditText(Context context) {",
+      "        this(context, null);",
+      "    }",
+      "",
+      "    public EditText(Context context, AttributeSet attrs) {",
+      "        this(context, attrs, com.android.internal.R.attr.editTextStyle);",
+      "    }",
+      "",
+      "    public EditText(Context context, AttributeSet attrs, int defStyleAttr) {",
+      "        this(context, attrs, defStyleAttr, 0);",
+      "    }",
+      "",
+      "    public EditText(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {",
+      "        super(context, attrs, defStyleAttr, defStyleRes);",
+      "    }",
+      "而我们如果使用 IDE 自动提示的 @JvmOverload",
+      "",
+      "image.png",
+      "写出来的代码长这样：",
+      "",
+      " class InputVIew @JvmOverloads constructor(",
+      "        context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0",
+      ") : EditText(context, attrs, defStyleAttr) {",
+      "}",
+      "看到了么，你的代码 defStyleAttr 默认是 0 而不是 com.android.internal.R.attr.editTextStyle 。",
+      "",
+      "那么说了这么多，这样会导致什么问题呢？",
+      "",
+      "亲测，焦点没有了的，点击之后键盘也无法弹起。",
+      "",
+      "那么这个坑 如何填呢？",
+      "修改默认值即可：",
+      "",
+      "class InputVIew @JvmOverloads constructor(",
+      "        context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = android.support.design.R.attr.editTextStyle",
+      ") : EditText(context, attrs, defStyleAttr)",
+      "注意",
+      "像我在开头提到的文章 《Do not always trust @JvmOverloads》 ，在最后写到: Button, EditText, RadioButton, Switch 都会有类似的问题，请大家平时开发过程中要留意。",
+      "",
+      "作者：IMSk",
+      "链接：https://www.jianshu.com/p/48a76d31f3ca",
+      "来源：简书",
+      "著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。",
+    ]
   },
   "kt-": {
     "prefix": "kt-",
